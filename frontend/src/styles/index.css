@@ -1,0 +1,392 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: "Inter", sans-serif;
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply py-16 px-4 md:py-24;
+  }
+
+  .container {
+    @apply max-w-screen-xl mx-auto;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  background-color: theme("colors.primary.DEFAULT");
+}
+
+::selection {
+  background-color: theme("colors.secondary.DEFAULT");
+  color: theme("colors.primary.DEFAULT");
+}
+
+/* Add smooth scrolling behavior */
+html {
+  scroll-padding-top: 80px; /* Height of navbar */
+}
+
+section {
+  scroll-margin-top: 80px; /* Height of navbar */
+  position: relative;
+}
+
+/* Add smooth transitions */
+.section-transition {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Ensure content is visible */
+.max-w-screen-lg {
+  width: 100%;
+  max-width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Add these animations to your existing index.css */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient 15s ease infinite;
+}
+
+/* Add these slide animations */
+@keyframes slideFromRight {
+  0% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-from-right {
+  animation: slideFromRight 0.8s ease-out forwards;
+}
+
+/* Add a common animation class for sections */
+.section-animate {
+  opacity: 0;
+  transform: translateX(100px);
+  transition: all 0.8s ease-out;
+}
+
+.section-animate.animate-in {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Add these new animations */
+@keyframes glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px theme("colors.secondary.DEFAULT");
+  }
+  50% {
+    box-shadow: 0 0 40px theme("colors.secondary.DEFAULT");
+  }
+}
+
+.animate-glow {
+  animation: glow 3s ease-in-out infinite;
+}
+
+@keyframes wave {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(15deg);
+  }
+  75% {
+    transform: rotate(-15deg);
+  }
+}
+
+.animate-wave {
+  animation: wave 2s ease-in-out infinite;
+}
+
+/* Gradient text animation */
+.gradient-text {
+  background: linear-gradient(
+    to right,
+    theme("colors.accent.blue"),
+    theme("colors.accent.purple"),
+    theme("colors.accent.pink"),
+    theme("colors.secondary.DEFAULT")
+  );
+  background-size: 300% auto;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: gradient-text 4s linear infinite;
+}
+
+@keyframes gradient-text {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* Smooth hover transitions */
+.hover-lift {
+  transition: transform 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px -10px theme("colors.secondary.DEFAULT");
+}
+
+/* Add these new gradient animations */
+.gradient-border {
+  position: relative;
+  background: theme("colors.primary.DEFAULT");
+}
+
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  z-index: -1;
+  background: linear-gradient(
+    45deg,
+    theme("colors.accent.blue"),
+    theme("colors.accent.purple"),
+    theme("colors.accent.pink"),
+    theme("colors.secondary.DEFAULT")
+  );
+  background-size: 200% 200%;
+  animation: gradient-border 4s linear infinite;
+  border-radius: inherit;
+}
+
+@keyframes gradient-border {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Add 3D perspective utilities */
+.perspective-1000 {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Add floating animation with 3D transform */
+@keyframes float3d {
+  0% {
+    transform: translateZ(0) translateY(0);
+  }
+  50% {
+    transform: translateZ(20px) translateY(-10px);
+  }
+  100% {
+    transform: translateZ(0) translateY(0);
+  }
+}
+
+.animate-float-3d {
+  animation: float3d 3s ease-in-out infinite;
+}
+
+/* Add 3D text shadow effect */
+.text-3d {
+  text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9,
+    0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2),
+    0 5px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2),
+    0 20px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Add these new gradient animations */
+@keyframes gradient-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient-flow {
+  animation: gradient-flow 15s ease infinite;
+  background-size: 400% 400%;
+}
+
+/* Mesh gradient animation */
+@keyframes mesh-gradient {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.5);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+.animate-mesh {
+  animation: mesh-gradient 20s linear infinite;
+}
+
+/* Enhanced glow effects */
+.glow {
+  position: relative;
+}
+
+.glow::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(
+    45deg,
+    theme("colors.accent.blue"),
+    theme("colors.accent.purple"),
+    theme("colors.accent.pink"),
+    theme("colors.secondary.DEFAULT")
+  );
+  filter: blur(15px);
+  z-index: -1;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.glow:hover::after {
+  opacity: 1;
+}
+
+/* Glass morphism effect */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Add these new gradient animations */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+    transform: rotate(0deg);
+  }
+  50% {
+    background-position: 100% 50%;
+    transform: rotate(180deg);
+  }
+  100% {
+    background-position: 0% 50%;
+    transform: rotate(360deg);
+  }
+}
+
+.animate-gradient-shift {
+  animation: gradient-shift 15s ease infinite;
+}
+
+/* Enhanced glow animation */
+@keyframes glow-pulse {
+  0%,
+  100% {
+    filter: blur(80px) brightness(1);
+  }
+  50% {
+    filter: blur(80px) brightness(1.2);
+  }
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 4s ease-in-out infinite;
+}
+
+/* Floating animation */
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+  25% {
+    transform: translateY(-10px) translateX(5px);
+  }
+  75% {
+    transform: translateY(10px) translateX(-5px);
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 8s ease-in-out infinite;
+}
