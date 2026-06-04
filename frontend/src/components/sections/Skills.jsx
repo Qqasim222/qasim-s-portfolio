@@ -78,11 +78,11 @@ const Skills = () => {
     <AnimatedBackground>
       <section 
         name="skills" 
-        className="min-h-screen w-full bg-primary py-20 flex items-center"
+        className="flex min-h-screen w-full items-center bg-transparent py-20"
       >
         <div 
           ref={sectionRef}
-          className="max-w-screen-lg mx-auto p-4 flex flex-col justify-center w-full h-full section-animate"
+          className="section-animate mx-auto flex h-full w-full max-w-screen-lg flex-col justify-center p-4"
         >
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -90,10 +90,10 @@ const Skills = () => {
             transition={{ duration: 0.5 }}
             className="pb-8"
           >
-            <h2 className="text-4xl font-bold border-b-4 border-secondary-DEFAULT p-2 inline text-text-primary">
+            <h2 className="inline border-b-4 border-secondary p-2 text-4xl font-bold text-text-primary">
               Skills & Technologies
             </h2>
-            <p className="py-6 text-text-secondary">These are the technologies I work with</p>
+            <p className="py-6 text-text-secondary">Core tools I use to deliver production-ready web solutions.</p>
           </motion.div>
 
           <div className="space-y-16">
@@ -103,11 +103,11 @@ const Skills = () => {
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.2 }}
-                  className="text-2xl font-semibold text-text-primary border-l-4 border-secondary-DEFAULT pl-4"
+                  className="border-l-4 border-secondary pl-4 text-2xl font-semibold text-text-primary"
                 >
                   {category.title}
                 </motion.h3>
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8">
+                <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-4">
                   {category.items.map(({ name, icon: Icon }, itemIndex) => (
                     <Card3D
                       key={name}
@@ -117,19 +117,19 @@ const Skills = () => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: (index * 0.2) + (itemIndex * 0.1) }}
-                        className="p-6 rounded-lg bg-gradient-to-br from-primary-light/50 to-primary-light/10 backdrop-blur-sm flex flex-col items-center gap-4 hover:shadow-lg hover:shadow-secondary-DEFAULT/10 border border-primary-light/50 transition-all duration-300"
+                        className="flex min-h-[150px] flex-col items-center gap-4 rounded-lg border border-white/10 bg-gradient-to-br from-primary-light/85 to-primary-soft/35 p-6 text-center shadow-lg shadow-black/10 backdrop-blur-sm transition-all duration-300 hover:border-secondary/40 hover:shadow-lg hover:shadow-secondary/10"
                       >
                         <motion.div
                           whileHover={{ rotateY: 180 }}
                           transition={{ duration: 0.8, type: "spring" }}
-                          className="relative w-16 h-16 flex items-center justify-center"
+                          className="relative flex h-16 w-16 items-center justify-center"
                         >
-                          <Icon size={40} className="text-accent-blue group-hover:text-secondary-DEFAULT transition-colors duration-300 absolute backface-hidden" />
+                          <Icon size={40} className="absolute text-accent-cyan transition-colors duration-300 backface-hidden group-hover:text-secondary" />
                           <div className="absolute inset-0 flex items-center justify-center rotate-y-180 backface-hidden">
-                            <span className="text-4xl">⚡</span>
+                            <span className="text-sm font-bold text-secondary">PRO</span>
                           </div>
                         </motion.div>
-                        <p className="text-text-primary group-hover:text-secondary-DEFAULT transition-colors duration-300 text-center font-medium">
+                        <p className="text-center font-medium text-text-primary transition-colors duration-300 group-hover:text-secondary">
                           {name}
                         </p>
                       </motion.div>

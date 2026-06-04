@@ -8,7 +8,7 @@ import Footer from './components/layout/Footer';
 
 function App() {
   return (
-    <div className="bg-primary relative">
+    <div className="relative min-h-screen bg-primary text-text-primary">
       <Navbar />
       <main className="relative">
         <Hero />

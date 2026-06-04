@@ -4,52 +4,26 @@ import { motion } from 'framer-motion';
 const AnimatedBackground = ({ children, className = "" }) => {
   return (
     <div className={`relative overflow-hidden ${className}`}>
-      {/* Background Elements */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.5 }}
-        className="absolute inset-0 z-0"
+        className="absolute inset-0 z-0 bg-primary"
       >
-        {/* Main gradient orbs */}
-        <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-radial from-accent-purple/30 via-accent-purple/10 to-transparent blur-[80px] animate-pulse" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-radial from-accent-blue/30 via-accent-blue/10 to-transparent blur-[80px] animate-pulse" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-radial from-secondary-DEFAULT/20 via-secondary-DEFAULT/5 to-transparent blur-[100px] animate-pulse" />
-        
-        {/* Floating orbs */}
         <motion.div
           animate={{
-            y: [-20, 20, -20],
-            x: [-10, 10, -10],
-            scale: [1, 1.1, 1],
+            backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
           }}
           transition={{
-            duration: 8,
+            duration: 18,
             repeat: Infinity,
-            ease: "easeInOut",
+            ease: "linear",
           }}
-          className="absolute top-40 right-1/4 w-64 h-64 bg-gradient-radial from-accent-pink/20 via-accent-pink/5 to-transparent blur-[60px]"
+          className="absolute inset-0 opacity-80 bg-[linear-gradient(120deg,rgba(8,13,20,1)_0%,rgba(18,27,41,0.95)_32%,rgba(53,214,201,0.11)_58%,rgba(245,196,81,0.1)_78%,rgba(8,13,20,1)_100%)] bg-[length:220%_220%]"
         />
-        <motion.div
-          animate={{
-            y: [20, -20, 20],
-            x: [10, -10, 10],
-            scale: [1.1, 1, 1.1],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="absolute bottom-40 left-1/4 w-72 h-72 bg-gradient-radial from-secondary-light/20 via-secondary-light/5 to-transparent blur-[70px]"
-        />
-
-        {/* Mesh gradient */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,0,0,0),rgba(0,0,0,0.3))]" />
-        
-        {/* Grid pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,7,12,0.12),rgba(5,7,12,0.88))]" />
         <div 
-          className="absolute inset-0 opacity-[0.02] text-text-secondary"
+          className="absolute inset-0 opacity-[0.05] text-secondary"
           style={{
             backgroundImage: `linear-gradient(to right, currentColor 1px, transparent 1px),
                              linear-gradient(to bottom, currentColor 1px, transparent 1px)`,
@@ -58,7 +32,6 @@ const AnimatedBackground = ({ children, className = "" }) => {
         />
       </motion.div>
 
-      {/* Content */}
       <div className="relative z-10">
         {children}
       </div>

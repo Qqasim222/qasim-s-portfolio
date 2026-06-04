@@ -33,10 +33,10 @@ const About = () => {
 
   return (
     <AnimatedBackground>
-      <section name="about" className="min-h-screen w-full bg-primary py-20 flex items-center">
+      <section name="about" className="flex min-h-screen w-full items-center bg-transparent py-20">
         <div 
           ref={sectionRef}
-          className="max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full h-full section-animate"
+          className="section-animate mx-auto flex h-full w-full max-w-screen-lg flex-col justify-center p-4"
         >
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -44,25 +44,23 @@ const About = () => {
             transition={{ duration: 0.5 }}
             className="pb-8"
           >
-            <h2 className="text-4xl font-bold inline border-b-4 border-secondary text-textPrimary">
+            <h2 className="inline border-b-4 border-secondary text-4xl font-bold text-text-primary">
               About Me
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid gap-8 md:grid-cols-2">
             <motion.div 
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-lg"
+              className="glass rounded-lg p-6 text-lg leading-8 text-text-secondary"
             >
-              <p className="mb-4">
-                I'm a passionate Frontend Developer with expertise in building exceptional digital experiences. 
-                With a strong foundation in modern web technologies, I create responsive and intuitive user interfaces.
+              <p className="mb-4 text-text-primary">
+                I'm a software engineer focused on building modern, maintainable web products for businesses that care about performance, usability, and long-term reliability.
               </p>
               <p>
-                When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, 
-                or sharing my knowledge through technical blog posts.
+                My work combines frontend engineering, API integration, product thinking, and clean delivery practices so clients get software that looks polished and works under real business pressure.
               </p>
             </motion.div>
 
@@ -73,15 +71,15 @@ const About = () => {
                   initial={{ opacity: 0, x: 50 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: id * 0.1 }}
-                  className="flex gap-4"
+                  className="glass flex gap-4 rounded-lg p-5"
                 >
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center">
+                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-secondary/10 ring-1 ring-secondary/25">
                     <Icon className="text-secondary text-xl" />
                   </div>
                   <div>
                     <p className="text-sm text-secondary">{year}</p>
-                    <h3 className="text-lg font-semibold text-textPrimary">{title}</h3>
-                    <p className="text-textSecondary">{company}</p>
+                    <h3 className="text-lg font-semibold text-text-primary">{title}</h3>
+                    <p className="text-text-secondary">{company}</p>
                   </div>
                 </motion.div>
               ))}

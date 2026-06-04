@@ -60,10 +60,10 @@ const Contact = () => {
 
   return (
     <AnimatedBackground>
-      <section name="contact" className="min-h-screen w-full bg-primary py-20 flex items-center">
+      <section name="contact" className="flex min-h-screen w-full items-center bg-transparent py-20">
         <div 
           ref={sectionRef}
-          className="max-w-screen-lg mx-auto p-4 flex flex-col justify-center w-full h-full section-animate"
+          className="section-animate mx-auto flex h-full w-full max-w-screen-lg flex-col justify-center p-4"
         >
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -71,29 +71,29 @@ const Contact = () => {
             transition={{ duration: 0.5 }}
             className="pb-8"
           >
-            <h2 className="text-4xl font-bold inline border-b-4 border-secondary text-textPrimary">
+            <h2 className="inline border-b-4 border-secondary text-4xl font-bold text-text-primary">
               Contact
             </h2>
-            <p className="py-6 text-textSecondary">Get in touch with me</p>
+            <p className="py-6 text-text-secondary">Start a conversation about your next software project.</p>
           </motion.div>
 
-          <div className="flex flex-col md:flex-row gap-8">
+          <div className="flex flex-col gap-8 md:flex-row">
             {/* Contact Info */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="flex-1 space-y-6"
+              className="glass flex-1 space-y-6 rounded-lg p-6"
             >
-              <div className="flex items-center space-x-4 text-textSecondary">
+              <div className="flex items-center space-x-4 text-text-secondary">
                 <FaEnvelope className="text-secondary text-2xl" />
                 <span>your.email@example.com</span>
               </div>
-              <div className="flex items-center space-x-4 text-textSecondary">
+              <div className="flex items-center space-x-4 text-text-secondary">
                 <FaPhone className="text-secondary text-2xl" />
                 <span>+1 234 567 890</span>
               </div>
-              <div className="flex items-center space-x-4 text-textSecondary">
+              <div className="flex items-center space-x-4 text-text-secondary">
                 <FaMapMarkerAlt className="text-secondary text-2xl" />
                 <span>Your Location</span>
               </div>
@@ -105,7 +105,7 @@ const Contact = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
               onSubmit={handleSubmit}
-              className="flex-1 flex flex-col space-y-4"
+              className="glass flex flex-1 flex-col space-y-4 rounded-lg p-6"
             >
               {status.message && (
                 <div className={`p-4 rounded-lg ${
@@ -124,7 +124,7 @@ const Contact = () => {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="Your Name"
-                  className="w-full p-2 bg-transparent border-2 border-text-secondary rounded-lg text-text-primary focus:outline-none focus:border-secondary-DEFAULT transition-colors duration-300"
+                  className="w-full rounded-lg border border-white/10 bg-primary-dark/60 p-3 text-text-primary transition-colors duration-300 placeholder:text-text-muted focus:border-secondary focus:outline-none"
                   required
                 />
               </motion.div>
@@ -136,7 +136,7 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="Your Email"
-                  className="w-full p-2 bg-transparent border-2 border-text-secondary rounded-lg text-text-primary focus:outline-none focus:border-secondary-DEFAULT transition-colors duration-300"
+                  className="w-full rounded-lg border border-white/10 bg-primary-dark/60 p-3 text-text-primary transition-colors duration-300 placeholder:text-text-muted focus:border-secondary focus:outline-none"
                   required
                 />
               </motion.div>
@@ -148,7 +148,7 @@ const Contact = () => {
                   onChange={handleChange}
                   placeholder="Your Message"
                   rows="5"
-                  className="w-full p-2 bg-transparent border-2 border-text-secondary rounded-lg text-text-primary focus:outline-none focus:border-secondary-DEFAULT resize-none transition-colors duration-300"
+                  className="w-full resize-none rounded-lg border border-white/10 bg-primary-dark/60 p-3 text-text-primary transition-colors duration-300 placeholder:text-text-muted focus:border-secondary focus:outline-none"
                   required
                 ></textarea>
               </motion.div>
@@ -158,7 +158,7 @@ const Contact = () => {
                 disabled={loading}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className={`bg-gradient-to-r from-accent-blue via-accent-purple to-accent-pink px-6 py-3 text-white rounded-lg transition-all duration-300 shadow-lg hover:shadow-accent-purple/25 disabled:opacity-50 disabled:cursor-not-allowed`}
+                className={`rounded-lg bg-gradient-to-r from-secondary via-accent-cyan to-accent-blue px-6 py-3 font-semibold text-primary-dark shadow-lg shadow-secondary/10 transition-all duration-300 hover:shadow-secondary/25 disabled:cursor-not-allowed disabled:opacity-50`}
               >
                 {loading ? 'Sending...' : 'Send Message'}
               </motion.button>
