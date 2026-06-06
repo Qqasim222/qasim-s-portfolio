@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { 
   FaReact, 
@@ -22,7 +21,6 @@ import {
   SiFirebase,
   SiGraphql,
   SiPostman,
-  SiWebflow,
   SiMui,
   SiAxios,
   SiChakraui,
@@ -49,9 +47,8 @@ const Skills = () => {
         { name: 'TypeScript', icon: SiTypescript, color: '#3178C6' },
         { name: 'JavaScript', icon: FaJs, color: '#F7DF1E' },
         { name: 'Redux', icon: SiRedux, color: '#764ABC' },
-        { name: 'HTML5', icon: FaHtml5, color: '#E34F26' },
-        { name: 'CSS3', icon: FaCss3, color: '#1572B6' },
-        { name: 'Webflow', icon: SiWebflow, color: '#4353FF' },
+        { name: 'HTML', icon: FaHtml5, color: '#E34F26' },
+        { name: 'CSS', icon: FaCss3, color: '#1572B6' },
       ]
     },
     {
