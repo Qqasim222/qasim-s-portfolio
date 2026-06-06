@@ -10,10 +10,10 @@ const Portfolio = () => {
   const projects = [
     {
       id: 1,
-      title: "BinariiDSM",
+      title: "DSM Secure Workspace",
       role: "Software Engineer",
       description: "Secure data security management platform for controlled file storage, team rooms, permissioned sharing, immutable audit records, blockchain proof of record, and built-in secure chats.",
-      image: "https://placehold.co/640x420/0A1930/64FFDA?text=BinariiDSM",
+      image: "https://placehold.co/640x420/0A1930/64FFDA?text=DSM+Workspace",
       tech: ["React", "Material UI", "Spring Boot", "Blockchain", "Secure Chat"],
       details: ["File upload and access-control workflows", "Hubs, rooms, chat, and audit trail interfaces", "Frontend integration with Spring Boot APIs"],
       live: "https://www.binariidsm.com/",

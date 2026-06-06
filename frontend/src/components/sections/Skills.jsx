@@ -30,6 +30,7 @@ import {
   SiSpringboot,
   SiExpress,
   SiMysql,
+  SiPostgresql,
   SiVercel
 } from 'react-icons/si';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
@@ -87,6 +88,7 @@ const Skills = () => {
       title: "Data, Tools & Delivery",
       items: [
         { name: 'MongoDB', icon: SiMongodb, color: '#47A248' },
+        { name: 'PostgreSQL', icon: SiPostgresql, color: '#4169E1' },
         { name: 'SQL', icon: SiMysql, color: '#4479A1' },
         { name: 'Database Design', icon: FaDatabase, color: '#F5C451' },
         { name: 'Firebase', icon: SiFirebase, color: '#FFCA28' },
