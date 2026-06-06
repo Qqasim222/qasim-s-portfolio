@@ -10,6 +10,7 @@ module.exports = {
           DEFAULT: "#0A1930", // Darker blue background
           light: "#112240",   // Lighter blue for cards
           dark: "#060F1E",    // Darker blue for contrast
+          soft: "#172A45",
         },
         secondary: {
           DEFAULT: "#64FFDA", // Bright mint
@@ -18,12 +19,14 @@ module.exports = {
         },
         accent: {
           blue: "#58A7FF",    // Bright blue
+          cyan: "#35D6C9",
           purple: "#BD34FE",  // Vibrant purple
           pink: "#FF3366",    // Vibrant pink
         },
         text: {
           primary: "#E6F1FF",   // Very light blue-white
           secondary: "#8892B0", // Light blue-gray
+          muted: "#66728F",
           accent: "#64FFDA",    // Same as secondary for consistency
         }
       },

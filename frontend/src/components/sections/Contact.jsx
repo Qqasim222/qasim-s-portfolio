@@ -5,6 +5,7 @@ import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import AnimatedBackground from '../common/AnimatedBackground';
 
 const Contact = () => {
+  const contactEmail = 'qasim.nouman850@gmail.com';
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -29,29 +30,21 @@ const Contact = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:5000/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
+      const subject = encodeURIComponent(`Project inquiry from ${formData.name}`);
+      const body = encodeURIComponent(
+        `Name: ${formData.name}\nEmail: ${formData.email}\n\nProject details:\n${formData.message}`
+      );
+
+      window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
+      setStatus({
+        type: 'success',
+        message: 'Your email app is ready with the project details.'
       });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        setStatus({
-          type: 'success',
-          message: 'Message sent successfully!'
-        });
-        setFormData({ name: '', email: '', message: '' });
-      } else {
-        throw new Error(data.message || 'Error sending message');
-      }
+      setFormData({ name: '', email: '', message: '' });
     } catch (error) {
       setStatus({
         type: 'error',
-        message: error.message
+        message: 'Please email me directly with your project details.'
       });
     } finally {
       setLoading(false);
@@ -60,7 +53,7 @@ const Contact = () => {
 
   return (
     <AnimatedBackground>
-      <section name="contact" className="flex min-h-screen w-full items-center bg-transparent py-20">
+      <section name="contact" className="flex w-full items-center bg-transparent py-16 sm:py-20">
         <div 
           ref={sectionRef}
           className="section-animate mx-auto flex h-full w-full max-w-screen-lg flex-col justify-center p-4"
@@ -71,31 +64,37 @@ const Contact = () => {
             transition={{ duration: 0.5 }}
             className="pb-8"
           >
-            <h2 className="inline border-b-4 border-secondary text-4xl font-bold text-text-primary">
-              Contact
+            <h2 className="inline border-b-4 border-secondary text-3xl font-bold text-text-primary sm:text-4xl">
+              Let&apos;s Build
             </h2>
-            <p className="py-6 text-text-secondary">Start a conversation about your next software project.</p>
+            <p className="max-w-2xl py-6 text-text-secondary">
+              Need a frontend specialist, full-stack engineer, AI application developer, or reliable product partner? Share what you are building and I will help turn it into a clear delivery plan.
+            </p>
           </motion.div>
 
-          <div className="flex flex-col gap-8 md:flex-row">
+          <div className="flex flex-col gap-6 md:flex-row md:gap-8">
             {/* Contact Info */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="glass flex-1 space-y-6 rounded-lg p-6"
+              className="glass min-w-0 flex-1 space-y-6 rounded-lg p-5 sm:p-6"
             >
-              <div className="flex items-center space-x-4 text-text-secondary">
+              <h3 className="text-2xl font-bold text-text-primary">Available for client work</h3>
+              <p className="leading-7 text-text-secondary">
+                I work with founders, agencies, and product teams on React, Next.js, TypeScript, AI-based applications, MERN, Spring Boot, dashboards, portals, and frontend modernization.
+              </p>
+              <div className="flex min-w-0 items-center space-x-4 text-text-secondary">
                 <FaEnvelope className="text-secondary text-2xl" />
-                <span>your.email@example.com</span>
+                <span className="min-w-0 break-words">{contactEmail}</span>
               </div>
-              <div className="flex items-center space-x-4 text-text-secondary">
+              <div className="flex min-w-0 items-center space-x-4 text-text-secondary">
                 <FaPhone className="text-secondary text-2xl" />
-                <span>+1 234 567 890</span>
+                <span className="min-w-0 break-words">Remote and contract projects</span>
               </div>
-              <div className="flex items-center space-x-4 text-text-secondary">
+              <div className="flex min-w-0 items-center space-x-4 text-text-secondary">
                 <FaMapMarkerAlt className="text-secondary text-2xl" />
-                <span>Your Location</span>
+                <span className="min-w-0 break-words">Pakistan, serving global clients</span>
               </div>
             </motion.div>
 
@@ -105,7 +104,7 @@ const Contact = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
               onSubmit={handleSubmit}
-              className="glass flex flex-1 flex-col space-y-4 rounded-lg p-6"
+              className="glass flex min-w-0 flex-1 flex-col space-y-4 rounded-lg p-5 sm:p-6"
             >
               {status.message && (
                 <div className={`p-4 rounded-lg ${
@@ -123,7 +122,7 @@ const Contact = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  placeholder="Your Name"
+                  placeholder="Your name"
                   className="w-full rounded-lg border border-white/10 bg-primary-dark/60 p-3 text-text-primary transition-colors duration-300 placeholder:text-text-muted focus:border-secondary focus:outline-none"
                   required
                 />
@@ -135,7 +134,7 @@ const Contact = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  placeholder="Your Email"
+                  placeholder="Your email"
                   className="w-full rounded-lg border border-white/10 bg-primary-dark/60 p-3 text-text-primary transition-colors duration-300 placeholder:text-text-muted focus:border-secondary focus:outline-none"
                   required
                 />
@@ -146,7 +145,7 @@ const Contact = () => {
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  placeholder="Your Message"
+                  placeholder="Briefly describe your project, timeline, and budget range"
                   rows="5"
                   className="w-full resize-none rounded-lg border border-white/10 bg-primary-dark/60 p-3 text-text-primary transition-colors duration-300 placeholder:text-text-muted focus:border-secondary focus:outline-none"
                   required
@@ -158,9 +157,9 @@ const Contact = () => {
                 disabled={loading}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className={`rounded-lg bg-gradient-to-r from-secondary via-accent-cyan to-accent-blue px-6 py-3 font-semibold text-primary-dark shadow-lg shadow-secondary/10 transition-all duration-300 hover:shadow-secondary/25 disabled:cursor-not-allowed disabled:opacity-50`}
+                className={`rounded-lg bg-gradient-to-r from-secondary via-accent-cyan to-accent-blue px-5 py-3 font-semibold text-primary-dark shadow-lg shadow-secondary/10 transition-all duration-300 hover:shadow-secondary/25 disabled:cursor-not-allowed disabled:opacity-50 sm:px-6`}
               >
-                {loading ? 'Sending...' : 'Send Message'}
+                {loading ? 'Preparing...' : 'Start Project Discussion'}
               </motion.button>
             </motion.form>
           </div>

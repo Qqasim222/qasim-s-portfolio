@@ -27,10 +27,36 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   background:
-    radial-gradient(circle at 15% 10%, rgba(53, 214, 201, 0.08), transparent 32rem),
-    radial-gradient(circle at 90% 5%, rgba(245, 196, 81, 0.1), transparent 28rem),
-    linear-gradient(135deg, theme("colors.primary.dark") 0%, theme("colors.primary.DEFAULT") 45%, #0F1722 100%);
+    radial-gradient(
+      circle at 15% 10%,
+      rgba(53, 214, 201, 0.08),
+      transparent 32rem
+    ),
+    radial-gradient(
+      circle at 90% 5%,
+      rgba(245, 196, 81, 0.1),
+      transparent 28rem
+    ),
+    linear-gradient(
+      135deg,
+      theme("colors.primary.dark") 0%,
+      theme("colors.primary.DEFAULT") 45%,
+      #0f1722 100%
+    );
   color: theme("colors.text.primary");
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
 }
 
 ::selection {
@@ -116,13 +142,13 @@ section {
 /* Add a common animation class for sections */
 .section-animate {
   opacity: 0;
-  transform: translateX(100px);
+  transform: translateY(32px);
   transition: all 0.8s ease-out;
 }
 
 .section-animate.animate-in {
   opacity: 1;
-  transform: translateX(0);
+  transform: translateY(0);
 }
 
 /* Add these new animations */
@@ -162,9 +188,9 @@ section {
   background: linear-gradient(
     to right,
     theme("colors.secondary.DEFAULT"),
-    theme("colors.accent.cyan"),
+    theme("colors.accent.purple"),
     theme("colors.accent.blue"),
-    theme("colors.accent.coral")
+    theme("colors.accent.pink")
   );
   background-size: 300% auto;
   color: transparent;
@@ -212,9 +238,9 @@ section {
   background: linear-gradient(
     45deg,
     theme("colors.secondary.DEFAULT"),
-    theme("colors.accent.cyan"),
+    theme("colors.accent.purple"),
     theme("colors.accent.blue"),
-    theme("colors.accent.coral")
+    theme("colors.accent.pink")
   );
   background-size: 200% 200%;
   animation: gradient-border 4s linear infinite;
@@ -266,10 +292,18 @@ section {
 
 /* Add 3D text shadow effect */
 .text-3d {
-  text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9,
-    0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1),
-    0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2),
-    0 5px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2),
+  text-shadow:
+    0 1px 0 #ccc,
+    0 2px 0 #c9c9c9,
+    0 3px 0 #bbb,
+    0 4px 0 #b9b9b9,
+    0 5px 0 #aaa,
+    0 6px 1px rgba(0, 0, 0, 0.1),
+    0 0 5px rgba(0, 0, 0, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.3),
+    0 3px 5px rgba(0, 0, 0, 0.2),
+    0 5px 10px rgba(0, 0, 0, 0.25),
+    0 10px 10px rgba(0, 0, 0, 0.2),
     0 20px 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -320,9 +354,9 @@ section {
   background: linear-gradient(
     45deg,
     theme("colors.secondary.DEFAULT"),
-    theme("colors.accent.cyan"),
+    theme("colors.accent.purple"),
     theme("colors.accent.blue"),
-    theme("colors.accent.coral")
+    theme("colors.accent.pink")
   );
   filter: blur(15px);
   z-index: -1;
@@ -341,6 +375,25 @@ section {
   -webkit-backdrop-filter: blur(18px);
   border: 1px solid rgba(245, 196, 81, 0.14);
   box-shadow: 0 24px 80px rgba(0, 0, 0, 0.32);
+}
+
+@media (max-width: 640px) {
+  html {
+    scroll-padding-top: 72px;
+  }
+
+  section {
+    scroll-margin-top: 72px;
+  }
+
+  .max-w-screen-lg {
+    padding-left: 0.875rem;
+    padding-right: 0.875rem;
+  }
+
+  .glass {
+    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
+  }
 }
 
 /* Add these new gradient animations */

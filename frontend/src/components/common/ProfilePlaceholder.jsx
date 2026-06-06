@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 const ProfilePlaceholder = ({ initials = "QN", className = "" }) => {
   return (
     <motion.div
-      className={`glass relative flex h-64 w-64 items-center justify-center rounded-full border-4 border-secondary/20 bg-gradient-to-br from-primary-light/80 to-primary-dark/80 md:h-80 md:w-80 ${className}`}
+      className={`glass relative flex h-40 w-40 items-center justify-center rounded-full border-4 border-secondary/20 bg-gradient-to-br from-primary-light/80 to-primary-dark/80 sm:h-56 sm:w-56 md:h-72 md:w-72 lg:h-80 lg:w-80 ${className}`}
       whileHover={{ scale: 1.05 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
     >
@@ -21,7 +21,7 @@ const ProfilePlaceholder = ({ initials = "QN", className = "" }) => {
         }}
       />
       <motion.div
-        className="gradient-text text-6xl font-bold md:text-7xl"
+        className="gradient-text text-4xl font-bold sm:text-6xl md:text-7xl"
         animate={{ scale: [1, 1.1, 1] }}
         transition={{ duration: 2, repeat: Infinity }}
       >

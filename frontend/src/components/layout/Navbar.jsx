@@ -17,7 +17,7 @@ const Navbar = () => {
     <header className="fixed top-0 z-50 w-full">
       <nav className="flex h-20 w-full items-center justify-between border-b border-white/10 bg-primary-dark/85 px-4 text-text-primary shadow-[0_10px_40px_rgba(0,0,0,0.22)] backdrop-blur-xl md:px-10">
         <div>
-          <h1 className="text-2xl font-bold tracking-normal text-secondary md:text-3xl">
+          <h1 className="text-xl font-bold tracking-normal text-secondary sm:text-2xl md:text-3xl">
             Muhammad Qasim
           </h1>
         </div>
@@ -40,14 +40,14 @@ const Navbar = () => {
           ))}
         </ul>
 
-        <div onClick={() => setNav(!nav)} className="z-10 cursor-pointer pr-4 text-secondary md:hidden">
-          {nav ? <FaTimes size={30} /> : <FaBars size={30} />}
+        <div onClick={() => setNav(!nav)} className="z-10 cursor-pointer text-secondary md:hidden">
+          {nav ? <FaTimes size={28} /> : <FaBars size={28} />}
         </div>
 
         {nav && (
           <ul className="absolute left-0 top-0 flex h-screen w-full flex-col items-center justify-center bg-primary-dark/95 backdrop-blur-xl">
             {links.map(({ id, link }) => (
-              <li key={id} className="cursor-pointer px-4 py-6 text-4xl capitalize text-text-secondary hover:text-secondary">
+              <li key={id} className="cursor-pointer px-4 py-5 text-3xl capitalize text-text-secondary hover:text-secondary sm:py-6 sm:text-4xl">
                 <Link 
                   onClick={() => setNav(!nav)}
                   to={link} 
