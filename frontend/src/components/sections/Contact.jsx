@@ -6,6 +6,7 @@ import AnimatedBackground from '../common/AnimatedBackground';
 
 const Contact = () => {
   const contactEmail = 'qasim.nouman850@gmail.com';
+  const formspreeEndpoint = 'https://formspree.io/f/maqzeyey';
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -30,21 +31,33 @@ const Contact = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const subject = encodeURIComponent(`Project inquiry from ${formData.name}`);
-      const body = encodeURIComponent(
-        `Name: ${formData.name}\nEmail: ${formData.email}\n\nProject details:\n${formData.message}`
-      );
+      const response = await fetch(formspreeEndpoint, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          subject: `Project inquiry from ${formData.name}`,
+        }),
+      });
 
-      window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
+      if (!response.ok) {
+        throw new Error('Form submission failed');
+      }
+
       setStatus({
         type: 'success',
-        message: 'Your email app is ready with the project details.'
+        message: 'Thanks. Your message has been sent successfully.'
       });
       setFormData({ name: '', email: '', message: '' });
     } catch (error) {
       setStatus({
         type: 'error',
-        message: 'Please email me directly with your project details.'
+        message: 'Message could not be sent. Please email me directly.'
       });
     } finally {
       setLoading(false);
@@ -159,7 +172,7 @@ const Contact = () => {
                 whileTap={{ scale: 0.98 }}
                 className={`rounded-lg bg-gradient-to-r from-secondary via-accent-cyan to-accent-blue px-5 py-3 font-semibold text-primary-dark shadow-lg shadow-secondary/10 transition-all duration-300 hover:shadow-secondary/25 disabled:cursor-not-allowed disabled:opacity-50 sm:px-6`}
               >
-                {loading ? 'Preparing...' : 'Start Project Discussion'}
+                {loading ? 'Sending...' : 'Start Project Discussion'}
               </motion.button>
             </motion.form>
           </div>
