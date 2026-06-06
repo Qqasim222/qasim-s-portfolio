@@ -1,7 +1,34 @@
+# Dependencies
 node_modules/
+
+# Build output
 dist/
 build/
+
+# Environment variables
 .env
-.DS_Store
+.env.*
+
+# Logs
 *.log
-.idea/      
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDEs
+.idea/
+.vscode/
+
+# Cache
+.cache/
+.parcel-cache/
+
+# Package manager files (optional)
+.pnpm-store/
+
+# Coverage
+coverage/
