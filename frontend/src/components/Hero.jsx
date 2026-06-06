@@ -38,10 +38,10 @@ const Hero = () => {
             </Link>
             
             <div className="flex items-center gap-4">
-              <a href="https://github.com" target="_blank" rel="noreferrer">
+              <a href="https://github.com/Qqasim222" target="_blank" rel="noreferrer">
                 <FaGithub size={25} className="text-textSecondary hover:text-secondary cursor-pointer" />
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noreferrer">
+              <a href="https://www.linkedin.com/in/muhammad-qasim-nouman850/" target="_blank" rel="noreferrer">
                 <FaLinkedin size={25} className="text-textSecondary hover:text-secondary cursor-pointer" />
               </a>
             </div>
