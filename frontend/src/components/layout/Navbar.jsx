@@ -18,7 +18,7 @@ const Navbar = () => {
       <nav className="flex h-20 w-full items-center justify-between border-b border-white/10 bg-primary-dark/85 px-4 text-text-primary shadow-[0_10px_40px_rgba(0,0,0,0.22)] backdrop-blur-xl md:px-10">
         <div>
           <h1 className="text-xl font-bold tracking-normal text-secondary sm:text-2xl md:text-3xl">
-            Muhammad Qasim
+            M. Qasim
           </h1>
         </div>
 

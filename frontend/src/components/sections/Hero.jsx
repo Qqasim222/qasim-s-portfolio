@@ -59,7 +59,7 @@ const Hero = () => {
 
   const highlights = [
     "5+ years experience",
-    "React, Next.js & TypeScript",
+    "React, Next.js, NodeJS & TypeScript",
     "AI apps, Spring Boot & MERN",
   ];
 
@@ -109,7 +109,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="mb-4 inline-flex max-w-full items-center rounded-full border border-secondary/25 bg-secondary/10 px-3 py-2 text-center text-xs font-semibold uppercase tracking-normal text-secondary sm:px-4 sm:text-sm mt-3"
+            className="mb-4 inline-flex max-w-full items-center rounded-full border border-secondary/25 bg-secondary/10 px-3 py-2 text-center text-xs font-semibold tracking-normal text-secondary sm:px-4 sm:text-sm mt-3"
           >
             Software Engineer for scalable web products
           </motion.span>
@@ -137,7 +137,7 @@ const Hero = () => {
             className="perspective-1000"
           >
             <span className="gradient-text inline-block max-w-full text-2xl font-bold leading-tight sm:text-4xl">
-              React, Next.js, AI Apps & Full-Stack Solutions
+              React, Next.js, Node.js, AI Apps & Full-Stack Solutions
             </span>
           </motion.div>
           
@@ -190,7 +190,7 @@ const Hero = () => {
               <motion.a 
                 whileHover={{ scale: 1.2, rotate: 360 }}
                 transition={{ type: "spring", stiffness: 260, damping: 20 }}
-                href="https://github.com" 
+                href="https://github.com/Qqasim222" 
                 target="_blank" 
                 rel="noreferrer"
                 className="text-text-secondary hover:text-secondary"
@@ -200,7 +200,7 @@ const Hero = () => {
               <motion.a 
                 whileHover={{ scale: 1.2, rotate: 360 }}
                 transition={{ type: "spring", stiffness: 260, damping: 20 }}
-                href="https://linkedin.com" 
+                href="https://www.linkedin.com/in/muhammad-qasim-nouman850/" 
                 target="_blank" 
                 rel="noreferrer"
                 className="text-text-secondary hover:text-secondary"
